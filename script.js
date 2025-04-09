@@ -1,33 +1,21 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
+  apiKey: "AIzaSyBAvqbN-VlyGVp64_CVKRC5VGcuA-LLxWc",
+  authDomain: "paoginregister.firebaseapp.com",
+  projectId: "paoginregister",
+  storageBucket: "paoginregister.firebasestorage.app",
+  messagingSenderId: "875357802646",
+  appId: "1:875357802646:web:826dd6d97ea2346beaf2b7",
+  measurementId: "G-60Q17SBQB9"
 };
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-function register() {
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-  auth.createUserWithEmailAndPassword(email, pass)
-    .then(() => {
-      document.getElementById("message").innerText = "Регистрация успешна!";
-    })
-    .catch(error => {
-      document.getElementById("message").innerText = error.message;
-    });
-}
-
-function login() {
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-  auth.signInWithEmailAndPassword(email, pass)
-    .then(() => {
-      document.getElementById("message").innerText = "Вход выполнен!";
-    })
-    .catch(error => {
-      document.getElementById("message").innerText = error.message;
-    });
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
